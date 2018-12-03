@@ -6,6 +6,6 @@ import org.elasticsearch.plugins.Plugin;
 public class SearchCountPlugin extends Plugin {
     public void onModule(final NodeModule nodeModule) {
         // TODO: Processorの定義をかく
-        nodeModule.registerProcessor(TypoReplaceProcessor.TYPE, (registry) -> new TypoReplaceProcessor.Factory());
+        nodeModule.registerProcessor(SearchCountProcessor.TYPE, (registry) -> new SearchCountProcessor.Factory());
     }
 }
