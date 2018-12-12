@@ -5,10 +5,13 @@ repositories {
 }
 
 dependencies {
-    compile 'org.elasticsearch:elasticsearch:6.5.4'
+    compile 'org.elasticsearch:elasticsearch:6.5.0'
 }
-task build(type: Zip, dependsOn: [':jar']) {
-    from files(libsDir)
+
+defaultTasks 'clean', 'build'
+
+task zipApp(type: Zip, dependsOn: ':jar') {
+    archiveName = "${baseName}.${extension}"
     from 'src/main/resources/plugin-metadata'
-    into 'elasticsearch'
+    from 'src/main/java'
 }
